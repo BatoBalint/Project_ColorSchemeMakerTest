@@ -1,0 +1,33 @@
+.chatBox {
+  height: 200px;
+  width: 100%;
+}
+
+.chatBox::-webkit-scrollbar {
+  background-color: transparent; /*#8f61ba*/
+  width: 12px;
+}
+
+.chatBox::-webkit-scrollbar-thumb {
+  background-color: #3e324a;
+  border-radius: 100vw;
+  border: solid 1px #8f61ba;
+}
+
+.chatBox::-webkit-scrollbar-track {
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+}
+
+.colorInput {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  border: none;
+  margin: 0 1em;
+}
+
+.plusColorInput {
+  padding-top: 18px;
+  font-size: 40px;
+}
