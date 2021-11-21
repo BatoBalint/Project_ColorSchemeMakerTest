@@ -58,8 +58,10 @@ const addColorsRowBtn = () => {
 };
 
 const addColorsRow = () => {
-  rowsList[rowsIndex] = new ColorRow(rowsIndex);
+  rowsList.push(new ColorRow(rowsIndex))
   rowsList[rowsIndex].addToHTML();
+  /*rowsList[rowsIndex] = new ColorRow(rowsIndex);
+  rowsList[rowsIndex].addToHTML();*/
   rowsIndex++;
 };
 
@@ -128,18 +130,21 @@ function changeColor(data) {
 
 const checkColorList = (data) => {
   if (data['id'] != sessionId) {
-    console.log(rowsList);
+    console.log(data);
     let sentRows = data['rowsList'];
     let diff = sentRows.length - rowsList.length;
 
-    if (diff > 0) {
+    if (diff >= 0) {
       for (let i = 0; i < diff; i++) {
         addColorsRow();
       }
       for (let rows in rowsList) {
+        console.log(sentRows[rows].easyInputList);
+        console.log(rowsList[rows].easyInputList);
+        console.log(sentRows[rows].easyInputList.length - rowsList[rows].easyInputList.length);
         let inputDiff = sentRows[rows].easyInputList.length - rowsList[rows].easyInputList.length;
         for (let i = 0; i < inputDiff; i++) {
-          rowsList[i].addInput(-1);
+          rowsList[rows].addInput(-1);
         }
         for (let i = 0; i < rowsList[rows].easyInputList.length; i++) {
           rowsList[rows].inputList[i].value = sentRows[rows].easyInputList[i];
@@ -178,7 +183,6 @@ sock.on('id', (id) => {
 });
 
 sock.on('serverRequestsColors', () => {
-  //let newList = convertList();
   let data = {'id': sessionId, 'rowsList': rowsList};
   sock.emit('clientSendsColors', data);
 });
