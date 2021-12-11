@@ -31,3 +31,13 @@
   padding-top: 18px;
   font-size: 40px;
 }
+
+/*.colorRow {
+  overflow-x: auto;
+  max-height: 170px;
+  display: flex;
+}*/
+
+.colorRow .colorInput {
+  min-width: 100px;
+}

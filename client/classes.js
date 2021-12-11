@@ -8,7 +8,7 @@ class ColorRow {
     this.parentDiv = document.getElementById('rowsDiv');
 
     this.rowDiv = document.createElement('div');
-    this.rowDiv.classList.add('row', 'p-3', 'mb-5', 'border', 'rounded', 'overflow-auto');
+    this.rowDiv.classList.add('row', 'p-3', 'mb-5', 'border', 'rounded', 'overflow-auto', 'colorRow');
     this.rowDiv.id = 'colorsDiv' + this.index;
 
     let deleteDiv = document.createElement('div');
